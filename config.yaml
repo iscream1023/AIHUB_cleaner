@@ -1,8 +1,8 @@
 
 path:
-  src_root: "/home/haggi/fire_detection_datasets/AI-HUB segmentation/my_datasets"
-  dst_root: "/home/haggi/fire_detection_datasets/AI-HUB segmentation/temp_datasets"
-  raw_labels: "/home/haggi/fire_detection_datasets/AI-HUB segmentation/temp_datasets/labels"
+  src_root: "root_to_AI_HUB_head"
+  dst_root: "root_to_temp_datasets"
+  raw_labels: "root_to_temp_datasets/labels"
   label_output_dir: "/home/haggi/fire_detection_datasets/AI-HUB segmentation/yolo_labels"
 
 dedup:
@@ -11,6 +11,7 @@ dedup:
 
 # Class Mapping (Original_ID: Target_ID)
 # IDs not listed here will be automatically filtered out.
+
 class_mapping:
   1: 1 # Black Smoke -> Smoke
   2: 1 # White Smoke -> Smoke
@@ -18,10 +19,10 @@ class_mapping:
 
 # Conversion Mode: "seg" or "box"
 mode: "seg" 
-
+# Spliting ration setting
 sampling:
   split_ratio: 0.8
-
+# Class modification in data.yaml
 class_names:
   0: "fire"
   1: "smoke"
