@@ -35,21 +35,29 @@ class Converter:
         for ann in data['annotations']:
             orig_id = ann['category_id']
             
-            # 클래스 필터링 및 매핑
+            # 1. 클래스 매핑 확인
             if orig_id not in self.class_map:
                 continue
             new_id = self.class_map[orig_id]
 
             if self.mode == "seg":
-                line = self._to_seg(new_id, ann['segmentation'][0], img_w, img_h)
+                # 🛡️ 방어 코드: segmentation 데이터가 비어 있는지 확인
+                if not ann.get('segmentation') or len(ann['segmentation']) == 0:
+                    # print(f"⚠️ Warning: {json_path.name}에 빈 세그멘테이션 데이터가 있습니다. 건너뜁니다.")
+                    continue
+                
+                # 가끔 segmentation이 [[x1, y1...]] 가 아니라 [x1, y1...] 일 때도 대비
+                seg_data = ann['segmentation'][0] if isinstance(ann['segmentation'][0], list) else ann['segmentation']
+                line = self._to_seg(new_id, seg_data, img_w, img_h)
             else:
                 line = self._to_box(new_id, ann['bbox'], img_w, img_h)
             
             results.append(line)
 
-        # 결과가 있을 때만 파일 생성 (이름 유지)
+        # 2. 결과가 있을 때만 파일 생성
         if results:
-            with open(self.save_dir / f"{json_path.stem}.txt", 'w') as f:
+            save_path = self.save_dir / f"{json_path.stem}.txt"
+            with open(save_path, 'w', encoding='utf-8') as f:
                 f.write("\n".join(results))
 
     def _to_seg(self, cls_id, poly, w, h):

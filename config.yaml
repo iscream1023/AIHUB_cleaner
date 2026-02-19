@@ -1,10 +1,9 @@
 
 path:
-  src_root: "path/to/raw/aihub/data"
-  dst_root: "path/to/intermediate/flattened/data"
-  raw_labels: "path/to/intermediate/flattened/data/labels"
-  output_dir: "path/to/final/yolo/labels"
-
+  src_root: "/home/haggi/fire_detection_datasets/AI-HUB segmentation/my_datasets"
+  dst_root: "/home/haggi/fire_detection_datasets/AI-HUB segmentation/temp_datasets"
+  raw_labels: "/home/haggi/fire_detection_datasets/AI-HUB segmentation/temp_datasets/labels"
+  label_output_dir: "/home/haggi/fire_detection_datasets/AI-HUB segmentation/yolo_labels"
 
 dedup:
   hash_size: 8
@@ -19,3 +18,10 @@ class_mapping:
 
 # Conversion Mode: "seg" or "box"
 mode: "seg" 
+
+sampling:
+  split_ratio: 0.8
+
+class_names:
+  0: "fire"
+  1: "smoke"
