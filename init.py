@@ -11,7 +11,7 @@ class AIHubPipeline:
         self.config_path = config_path
 
     def run(self):
-        print("🔥 AI-HUB 전처리 파이프라인 가동 (버터플라이 모드)")
+        print("🔥 AI-HUB datasets cleaner ACTIVATED ")
         
         # Step 1: 폴더 정리
         fm = FolderManager(src_root=self.cfg['path']['src_root'], 
@@ -30,4 +30,4 @@ class AIHubPipeline:
         converter = Converter(config_path=self.config_path)
         converter.process_all()
 
-        print("\n🚀 모든 공정이 끝났습니다. 이제 11s 깎으러 가십시오.")
+        print("\n🚀 ALL PROCESS IS DONE")
