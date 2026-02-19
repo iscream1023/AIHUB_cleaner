@@ -1,0 +1,5 @@
+# core requirements
+Pillow          # image handling (PIL)
+imagehash       # for d-Hash
+PyYAML          # yaml config file load
+tqdm            # progress bar showing
