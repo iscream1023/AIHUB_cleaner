@@ -58,13 +58,12 @@ mode: "seg"
 
 Execute the entire complex pipeline with just a few lines of code:
 Python
-
+```
 from aihub_cleaner import AIHubPipeline
 
-# Initialize and Run the Pipeline
 pipeline = AIHubPipeline(config_path='config.yaml')
 pipeline.run()
-
+```
 🛡️ License & Ethics
 
 This tool is provided for research and development purposes. When using AI-HUB datasets, users must strictly adhere to the AI-HUB Terms of Use and Copyright Guidelines.
