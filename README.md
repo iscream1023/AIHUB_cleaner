@@ -1,4 +1,4 @@
-# AI-HUB Cleaner: Automated Dataset Pipeline for On-Device AI
+# AI-HUB Cleaner: Automated Dataset Pipeline
 
 AI-HUB datasets are notorious for their fragmented folder structures, redundant video frames, and inconsistent label formats. AI-HUB Cleaner automates the tedious preprocessing steps, allowing researchers to focus on what truly matters: Model Architecture and Optimization.
 
